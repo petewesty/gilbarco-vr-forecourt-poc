@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Gilbarco Veeder-Root VR Forecourt Training - Navigable POC</title>
+  <title>Gilbarco Veeder-Root VR Forecourt Training - Realistic Dispensers</title>
   <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
   <style>
     body { margin: 0; overflow: hidden; font-family: Arial, sans-serif; }
@@ -40,62 +40,66 @@
       </a-camera>
     </a-entity>
 
-    <!-- Large Ground -->
     <a-plane position="0 0 0" rotation="-90 0 0" width="60" height="60" color="#4A4A4A" material="roughness:0.9"></a-plane>
+    <a-plane position="0 0.02 -2" rotation="-90 0 0" width="12" height="16" color="#2A2A2A"></a-plane>
 
-    <!-- Section Labels (floating) -->
     <a-text value="DISPENSER ISLAND" position="0 3 -2" align="center" color="#FFF" width="6"></a-text>
     <a-text value="TANK AREA" position="8 2.5 -10" align="center" color="#FFF" width="5"></a-text>
     <a-text value="ATG / ELECTRICAL" position="-8 2.5 -10" align="center" color="#FFF" width="5"></a-text>
     <a-text value="HEIGHTS / CANOPY" position="0 7 -2" align="center" color="#FFD700" width="5"></a-text>
 
-    <!-- Island surface -->
-    <a-plane position="0 0.02 -2" rotation="-90 0 0" width="12" height="16" color="#2A2A2A"></a-plane>
-
-    <!-- Canopy (spans island) -->
     <a-box id="canopy" position="0 4.5 -2" width="16" height="0.4" depth="12" color="#0066CC"></a-box>
     <a-box position="-7 2.6 -2" width="0.4" height="5.2" depth="0.4" color="#333"></a-box>
     <a-box position="7 2.6 -2" width="0.4" height="5.2" depth="0.4" color="#333"></a-box>
 
-    <!-- Dispenser Section -->
-    <a-entity id="dispenser" position="0 1.3 -2" class="clickable" data-hazard="explosive" data-section="island">
-      <a-box width="1.4" height="2.4" depth="0.7" color="#E0E0E0"></a-box>
-      <a-text value="SK700-II" position="0 0.9 0.36" align="center" color="#111" width="1.6"></a-text>
+    <!-- Realistic-style SK700-II dispenser (multi-part) -->
+    <a-entity id="dispenser" position="0 0 -2" class="clickable" data-hazard="explosive" data-section="island">
+      <!-- Base / lower cabinet -->
+      <a-box position="0 0.9 0" width="1.6" height="1.8" depth="0.7" color="#E8E8E8" material="roughness:0.4; metalness:0.1"></a-box>
+      <!-- Upper head / display housing -->
+      <a-box position="0 2.3 0" width="1.5" height="1.0" depth="0.6" color="#F5F5F5"></a-box>
+      <!-- Display screen -->
+      <a-box position="0 2.4 0.32" width="0.9" height="0.5" depth="0.05" color="#111"></a-box>
+      <a-text value="SK700-II" position="0 2.4 0.35" align="center" color="#0F0" width="1.2"></a-text>
+      <!-- Hoses (left side) -->
+      <a-cylinder position="-0.7 1.6 0" radius="0.04" height="2.2" color="#222" rotation="0 0 15"></a-cylinder>
+      <a-cylinder position="-0.85 0.6 0.1" radius="0.06" height="0.3" color="#CC0000"></a-cylinder>
+      <!-- Hoses (right side) -->
+      <a-cylinder position="0.7 1.6 0" radius="0.04" height="2.2" color="#222" rotation="0 0 -15"></a-cylinder>
+      <a-cylinder position="0.85 0.6 0.1" radius="0.06" height="0.3" color="#0066CC"></a-cylinder>
+      <!-- Branding strip -->
+      <a-box position="0 0.4 0.36" width="1.4" height="0.25" depth="0.05" color="#0066CC"></a-box>
+      <a-text value="GILBARCO" position="0 0.4 0.39" align="center" color="#FFF" width="1.3"></a-text>
     </a-entity>
 
-    <!-- Tank Area (further back/right) -->
     <a-entity id="manway" position="8 0.25 -10" class="clickable" data-hazard="confined" data-section="tank">
       <a-cylinder radius="0.8" height="0.4" color="#777"></a-cylinder>
       <a-text value="Tank Sump / Manway" position="0 0.7 0" align="center" color="#FFF" width="2.4"></a-text>
     </a-entity>
     <a-cylinder position="8 0.1 -12" radius="0.3" height="1.5" color="#555"></a-cylinder>
 
-    <!-- ATG / Electrical Section (further back/left) -->
     <a-entity id="atg" position="-8 1.1 -10" class="clickable" data-hazard="electrical" data-section="atg">
       <a-box width="1" height="1.8" depth="0.6" color="#1A1A1A"></a-box>
       <a-text value="ATG Console" position="0 0.6 0.31" align="center" color="#00FF00" width="1.5"></a-text>
     </a-entity>
 
-    <!-- Heights access -->
     <a-entity id="heights" position="0 6.5 -2" class="clickable" data-hazard="heights" data-section="heights">
       <a-box width="1.5" height="0.3" depth="1.5" color="#FFD700"></a-box>
       <a-text value="Canopy Access" position="0 0.4 0" align="center" color="#FFF" width="2.2"></a-text>
     </a-entity>
 
-    <!-- Traffic / Exclusion (near island edge) -->
     <a-entity id="traffic" position="-4 0.5 2" class="clickable" data-hazard="traffic" data-section="island">
       <a-cone radius-bottom="0.45" radius-top="0.05" height="0.9" color="#FF6600"></a-cone>
       <a-text value="Exclusion Zone" position="0 0.7 0" align="center" color="#FFF" width="2"></a-text>
     </a-entity>
 
-    <!-- Simple path markers -->
     <a-box position="4 0.05 -6" width="0.3" height="0.1" depth="6" color="#666"></a-box>
     <a-box position="-4 0.05 -6" width="0.3" height="0.1" depth="6" color="#666"></a-box>
 
-    <a-light type="ambient" color="#FFFFFF" intensity="0.65"></a-light>
-    <a-light type="directional" color="#FFFFFF" intensity="0.75" position="-2 4 3"></a-light>
+    <a-light type="ambient" color="#FFFFFF" intensity="0.7"></a-light>
+    <a-light type="directional" color="#FFFFFF" intensity="0.8" position="-2 4 3"></a-light>
+    <a-light type="point" color="#FFF" intensity="0.4" position="0 5 -2"></a-light>
 
-    <!-- Feedback Panel -->
     <a-entity id="panel" position="0 2.3 3" visible="false">
       <a-plane width="3.6" height="2.5" color="#111" opacity="0.95"></a-plane>
       <a-text id="panel-title" value="" position="0 0.9 0.01" align="center" color="#FFF" width="3.2"></a-text>
