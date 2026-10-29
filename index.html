@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Gilbarco Veeder-Root VR Forecourt Training - Realistic Environment</title>
+  <title>Gilbarco Veeder-Root VR Forecourt Training - Realistic Multi-Island</title>
   <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
   <style>
     body { margin: 0; overflow: hidden; font-family: Arial, sans-serif; }
@@ -34,73 +34,137 @@
   </div>
 
   <a-scene renderer="antialias: true; physicallyCorrectLights: true" background="color: #87CEEB">
-    <a-entity id="rig" position="0 1.6 10">
+    <a-entity id="rig" position="0 1.6 18">
       <a-camera look-controls wasd-controls cursor="rayOrigin: mouse; fuse: false">
         <a-cursor color="yellow"></a-cursor>
       </a-camera>
     </a-entity>
 
-    <a-plane position="0 0 0" rotation="-90 0 0" width="80" height="80" color="#555555" material="roughness:0.85; metalness:0.05"></a-plane>
-    <a-plane position="0 0.03 -2" rotation="-90 0 0" width="14" height="18" color="#3A3A3A" material="roughness:0.7"></a-plane>
+    <a-plane position="0 0 0" rotation="-90 0 0" width="100" height="100" color="#5A5A5A" material="roughness:0.85"></a-plane>
+    <a-plane position="0 0.02 -5" rotation="-90 0 0" width="40" height="28" color="#3A3A3A"></a-plane>
 
-    <a-box position="0 0.02 8" width="0.15" height="0.02" depth="12" color="#FFFFFF"></a-box>
-    <a-box position="-3 0.02 4" width="6" height="0.02" depth="0.12" color="#FFD700"></a-box>
-    <a-box position="3 0.02 4" width="6" height="0.02" depth="0.12" color="#FFD700"></a-box>
+    <a-box position="0 0.03 12" width="0.15" height="0.02" depth="20" color="#FFF"></a-box>
+    <a-box position="-8 0.03 6" width="16" height="0.02" depth="0.12" color="#FFD700"></a-box>
+    <a-box position="8 0.03 6" width="16" height="0.02" depth="0.12" color="#FFD700"></a-box>
 
-    <a-text value="DISPENSER ISLAND" position="0 3.2 -2" align="center" color="#FFF" width="6"></a-text>
-    <a-text value="TANK AREA" position="10 2.8 -12" align="center" color="#FFF" width="5"></a-text>
-    <a-text value="ATG / ELECTRICAL" position="-10 2.8 -12" align="center" color="#FFF" width="5"></a-text>
-    <a-text value="HEIGHTS / CANOPY" position="0 7.2 -2" align="center" color="#FFD700" width="5"></a-text>
-
-    <a-box id="canopy" position="0 4.8 -2" width="18" height="0.35" depth="14" color="#0066CC" material="roughness:0.3; metalness:0.2"></a-box>
-    <a-box position="-8 2.6 -2" width="0.35" height="5.2" depth="0.35" color="#2A2A2A"></a-box>
-    <a-box position="8 2.6 -2" width="0.35" height="5.2" depth="0.35" color="#2A2A2A"></a-box>
-    <a-box position="0 2.6 -8" width="0.35" height="5.2" depth="0.35" color="#2A2A2A"></a-box>
-    <a-light type="point" color="#FFF" intensity="1.2" position="-4 4.5 -2"></a-light>
-    <a-light type="point" color="#FFF" intensity="1.2" position="4 4.5 -2"></a-light>
-    <a-light type="point" color="#FFF" intensity="1.2" position="0 4.5 -6"></a-light>
-
-    <a-entity id="dispenser" position="0 0 -2" class="clickable" data-hazard="explosive" data-section="island">
-      <a-box position="0 0.95 0" width="1.7" height="1.9" depth="0.75" color="#E8E8E8" material="roughness:0.35; metalness:0.15"></a-box>
-      <a-box position="0 2.35 0" width="1.55" height="1.05" depth="0.65" color="#F8F8F8"></a-box>
-      <a-box position="0 2.45 0.34" width="1.0" height="0.55" depth="0.04" color="#0A0A0A"></a-box>
-      <a-text value="SK700-II" position="0 2.45 0.37" align="center" color="#00FF00" width="1.3"></a-text>
-      <a-cylinder position="-0.75 1.7 0" radius="0.045" height="2.4" color="#1A1A1A" rotation="0 0 12"></a-cylinder>
-      <a-cylinder position="-0.9 0.55 0.12" radius="0.07" height="0.35" color="#CC0000"></a-cylinder>
-      <a-cylinder position="0.75 1.7 0" radius="0.045" height="2.4" color="#1A1A1A" rotation="0 0 -12"></a-cylinder>
-      <a-cylinder position="0.9 0.55 0.12" radius="0.07" height="0.35" color="#0066CC"></a-cylinder>
-      <a-box position="0 0.45 0.38" width="1.5" height="0.22" depth="0.04" color="#0066CC"></a-box>
-      <a-text value="GILBARCO" position="0 0.45 0.41" align="center" color="#FFF" width="1.4"></a-text>
+    <a-entity id="trees">
+      <a-cylinder position="-25 3 -20" radius="0.4" height="6" color="#4A2F1F"></a-cylinder>
+      <a-sphere position="-25 7 -20" radius="2.5" color="#2E7D32"></a-sphere>
+      <a-cylinder position="-15 3 -25" radius="0.4" height="6" color="#4A2F1F"></a-cylinder>
+      <a-sphere position="-15 7 -25" radius="2.2" color="#388E3C"></a-sphere>
+      <a-cylinder position="15 3 -25" radius="0.4" height="6" color="#4A2F1F"></a-cylinder>
+      <a-sphere position="15 7 -25" radius="2.5" color="#2E7D32"></a-sphere>
+      <a-cylinder position="25 3 -20" radius="0.4" height="6" color="#4A2F1F"></a-cylinder>
+      <a-sphere position="25 7 -20" radius="2.3" color="#43A047"></a-sphere>
     </a-entity>
 
-    <a-entity id="manway" position="10 0.25 -12" class="clickable" data-hazard="confined" data-section="tank">
-      <a-cylinder radius="0.9" height="0.35" color="#666" material="roughness:0.6"></a-cylinder>
+    <a-entity id="shop" position="0 2.5 -22">
+      <a-box width="20" height="5" depth="8" color="#E0E0E0" material="roughness:0.6"></a-box>
+      <a-box position="0 2.8 4.1" width="16" height="2.2" depth="0.2" color="#87CEEB" opacity="0.6"></a-box>
+      <a-box position="0 0.3 4.1" width="4" height="2.2" depth="0.2" color="#333"></a-box>
+      <a-text value="SHOP" position="0 1.5 4.3" align="center" color="#111" width="4"></a-text>
+    </a-entity>
+
+    <a-box id="canopy" position="0 5.2 -5" width="36" height="0.4" depth="20" color="#0066CC" material="roughness:0.3; metalness:0.2"></a-box>
+    <a-box position="-16 2.8 -5" width="0.4" height="5.6" depth="0.4" color="#2A2A2A"></a-box>
+    <a-box position="16 2.8 -5" width="0.4" height="5.6" depth="0.4" color="#2A2A2A"></a-box>
+    <a-box position="0 2.8 -14" width="0.4" height="5.6" depth="0.4" color="#2A2A2A"></a-box>
+    <a-box position="0 2.8 4" width="0.4" height="5.6" depth="0.4" color="#2A2A2A"></a-box>
+
+    <a-entity class="dispenser-group" position="-8 0 -4">
+      <a-entity class="clickable" data-hazard="explosive" data-section="island">
+        <a-box position="0 0.95 0" width="1.6" height="1.9" depth="0.7" color="#E8E8E8" material="roughness:0.35; metalness:0.15"></a-box>
+        <a-box position="0 2.3 0" width="1.5" height="1.0" depth="0.6" color="#F8F8F8"></a-box>
+        <a-box position="0 2.4 0.32" width="0.9" height="0.5" depth="0.04" color="#111"></a-box>
+        <a-cylinder position="-0.7 1.6 0" radius="0.04" height="2.2" color="#222" rotation="0 0 12"></a-cylinder>
+        <a-cylinder position="-0.85 0.55 0.1" radius="0.06" height="0.3" color="#CC0000"></a-cylinder>
+        <a-cylinder position="0.7 1.6 0" radius="0.04" height="2.2" color="#222" rotation="0 0 -12"></a-cylinder>
+        <a-cylinder position="0.85 0.55 0.1" radius="0.06" height="0.3" color="#0066CC"></a-cylinder>
+      </a-entity>
+      <a-entity class="clickable" data-hazard="explosive" data-section="island" position="0 0 -4">
+        <a-box position="0 0.95 0" width="1.6" height="1.9" depth="0.7" color="#E8E8E8" material="roughness:0.35; metalness:0.15"></a-box>
+        <a-box position="0 2.3 0" width="1.5" height="1.0" depth="0.6" color="#F8F8F8"></a-box>
+        <a-cylinder position="-0.7 1.6 0" radius="0.04" height="2.2" color="#222" rotation="0 0 12"></a-cylinder>
+        <a-cylinder position="0.7 1.6 0" radius="0.04" height="2.2" color="#222" rotation="0 0 -12"></a-cylinder>
+      </a-entity>
+    </a-entity>
+
+    <a-entity class="dispenser-group" position="0 0 -4">
+      <a-entity class="clickable" data-hazard="explosive" data-section="island">
+        <a-box position="0 0.95 0" width="1.6" height="1.9" depth="0.7" color="#E8E8E8" material="roughness:0.35; metalness:0.15"></a-box>
+        <a-box position="0 2.3 0" width="1.5" height="1.0" depth="0.6" color="#F8F8F8"></a-box>
+        <a-box position="0 2.4 0.32" width="0.9" height="0.5" depth="0.04" color="#111"></a-box>
+        <a-text value="SK700-II" position="0 2.4 0.35" align="center" color="#0F0" width="1.2"></a-text>
+        <a-cylinder position="-0.7 1.6 0" radius="0.04" height="2.2" color="#222" rotation="0 0 12"></a-cylinder>
+        <a-cylinder position="-0.85 0.55 0.1" radius="0.06" height="0.3" color="#CC0000"></a-cylinder>
+        <a-cylinder position="0.7 1.6 0" radius="0.04" height="2.2" color="#222" rotation="0 0 -12"></a-cylinder>
+        <a-cylinder position="0.85 0.55 0.1" radius="0.06" height="0.3" color="#0066CC"></a-cylinder>
+        <a-box position="0 0.4 0.36" width="1.4" height="0.22" depth="0.04" color="#0066CC"></a-box>
+        <a-text value="GILBARCO" position="0 0.4 0.39" align="center" color="#FFF" width="1.3"></a-text>
+      </a-entity>
+    </a-entity>
+
+    <a-entity class="dispenser-group" position="8 0 -4">
+      <a-entity class="clickable" data-hazard="explosive" data-section="island">
+        <a-box position="0 0.95 0" width="1.6" height="1.9" depth="0.7" color="#E8E8E8" material="roughness:0.35; metalness:0.15"></a-box>
+        <a-box position="0 2.3 0" width="1.5" height="1.0" depth="0.6" color="#F8F8F8"></a-box>
+        <a-cylinder position="-0.7 1.6 0" radius="0.04" height="2.2" color="#222" rotation="0 0 12"></a-cylinder>
+        <a-cylinder position="0.7 1.6 0" radius="0.04" height="2.2" color="#222" rotation="0 0 -12"></a-cylinder>
+      </a-entity>
+      <a-entity class="clickable" data-hazard="explosive" data-section="island" position="0 0 -4">
+        <a-box position="0 0.95 0" width="1.6" height="1.9" depth="0.7" color="#E8E8E8" material="roughness:0.35; metalness:0.15"></a-box>
+        <a-box position="0 2.3 0" width="1.5" height="1.0" depth="0.6" color="#F8F8F8"></a-box>
+        <a-cylinder position="-0.7 1.6 0" radius="0.04" height="2.2" color="#222" rotation="0 0 12"></a-cylinder>
+        <a-cylinder position="0.7 1.6 0" radius="0.04" height="2.2" color="#222" rotation="0 0 -12"></a-cylinder>
+      </a-entity>
+    </a-entity>
+
+    <a-entity id="cars">
+      <a-box position="-8 0.6 1" width="1.8" height="1.2" depth="4.2" color="#1E88E5" material="roughness:0.3; metalness:0.4"></a-box>
+      <a-box position="0 0.6 1" width="1.8" height="1.2" depth="4.2" color="#E53935" material="roughness:0.3; metalness:0.4"></a-box>
+      <a-box position="8 0.6 1" width="1.8" height="1.2" depth="4.2" color="#43A047" material="roughness:0.3; metalness:0.4"></a-box>
+      <a-box position="-8 0.6 -8" width="1.8" height="1.2" depth="4.2" color="#FDD835" material="roughness:0.3; metalness:0.4"></a-box>
+    </a-entity>
+
+    <a-entity id="airwater" position="14 0.8 -2" class="clickable" data-hazard="traffic" data-section="island">
+      <a-box width="1.2" height="1.6" depth="0.6" color="#FFF"></a-box>
+      <a-cylinder position="0.5 0.4 0.4" radius="0.08" height="0.8" color="#333"></a-cylinder>
+      <a-text value="AIR / WATER" position="0 1.2 0.32" align="center" color="#111" width="1.4"></a-text>
+    </a-entity>
+
+    <a-entity id="manway" position="12 0.25 -14" class="clickable" data-hazard="confined" data-section="tank">
+      <a-cylinder radius="0.9" height="0.35" color="#666"></a-cylinder>
       <a-text value="Tank Sump / Manway" position="0 0.8 0" align="center" color="#FFF" width="2.6"></a-text>
     </a-entity>
-    <a-cylinder position="10 0.15 -14" radius="0.25" height="1.8" color="#444"></a-cylinder>
+    <a-cylinder position="12 0.15 -16" radius="0.25" height="1.8" color="#444"></a-cylinder>
 
-    <a-entity id="atg" position="-10 1.15 -12" class="clickable" data-hazard="electrical" data-section="atg">
-      <a-box width="1.1" height="1.9" depth="0.65" color="#1A1A1A" material="roughness:0.4"></a-box>
+    <a-entity id="atg" position="-12 1.15 -14" class="clickable" data-hazard="electrical" data-section="atg">
+      <a-box width="1.1" height="1.9" depth="0.65" color="#1A1A1A"></a-box>
       <a-text value="ATG Console" position="0 0.7 0.34" align="center" color="#00FF00" width="1.6"></a-text>
     </a-entity>
 
-    <a-entity id="heights" position="0 6.8 -2" class="clickable" data-hazard="heights" data-section="heights">
+    <a-entity id="heights" position="0 7 -5" class="clickable" data-hazard="heights" data-section="heights">
       <a-box width="1.6" height="0.25" depth="1.6" color="#FFD700"></a-box>
       <a-text value="Canopy Access" position="0 0.4 0" align="center" color="#FFF" width="2.3"></a-text>
     </a-entity>
 
-    <a-entity id="traffic" position="-5 0.5 3" class="clickable" data-hazard="traffic" data-section="island">
+    <a-entity id="traffic" position="-6 0.5 6" class="clickable" data-hazard="traffic" data-section="island">
       <a-cone radius-bottom="0.4" radius-top="0.04" height="0.85" color="#FF5500"></a-cone>
       <a-text value="Exclusion Zone" position="0 0.7 0" align="center" color="#FFF" width="2"></a-text>
     </a-entity>
 
-    <a-cylinder position="-2 0.6 1" radius="0.12" height="1.2" color="#FFCC00"></a-cylinder>
-    <a-cylinder position="2 0.6 1" radius="0.12" height="1.2" color="#FFCC00"></a-cylinder>
+    <a-cylinder position="-4 0.6 3" radius="0.12" height="1.2" color="#FFCC00"></a-cylinder>
+    <a-cylinder position="4 0.6 3" radius="0.12" height="1.2" color="#FFCC00"></a-cylinder>
+    <a-cylinder position="-12 0.6 3" radius="0.12" height="1.2" color="#FFCC00"></a-cylinder>
+    <a-cylinder position="12 0.6 3" radius="0.12" height="1.2" color="#FFCC00"></a-cylinder>
 
-    <a-light type="ambient" color="#FFFFFF" intensity="0.6"></a-light>
-    <a-light type="directional" color="#FFFFFF" intensity="0.9" position="-3 6 4" castShadow="true"></a-light>
+    <a-light type="ambient" color="#FFFFFF" intensity="0.55"></a-light>
+    <a-light type="directional" color="#FFFFFF" intensity="0.85" position="-5 8 6"></a-light>
+    <a-light type="point" color="#FFF" intensity="1.0" position="-8 4.8 -5"></a-light>
+    <a-light type="point" color="#FFF" intensity="1.0" position="0 4.8 -5"></a-light>
+    <a-light type="point" color="#FFF" intensity="1.0" position="8 4.8 -5"></a-light>
 
-    <a-entity id="panel" position="0 2.5 4" visible="false">
+    <a-entity id="panel" position="0 2.5 8" visible="false">
       <a-plane width="3.8" height="2.6" color="#111" opacity="0.95"></a-plane>
       <a-text id="panel-title" value="" position="0 0.95 0.01" align="center" color="#FFF" width="3.4"></a-text>
       <a-text id="panel-body" value="" position="0 0.1 0.01" align="center" color="#CCC" width="3.4"></a-text>
@@ -119,7 +183,7 @@
 
     const modules = {
       1: { name: "Hazard Awareness", text: "Navigate the forecourt sections and identify hazards. Review the required controls for each." },
-      2: { name: "Dispenser Isolation", text: "Go to the dispenser island. Prepare for service: Isolation/LOTO, zero energy, Ex-rated tools." },
+      2: { name: "Dispenser Isolation", text: "Go to a dispenser island. Prepare for service: Isolation/LOTO, zero energy, Ex-rated tools." },
       3: { name: "Confined Space Prep", text: "Navigate to the tank area. Prepare for entry: permit, gas testing, ventilation, retrieval, attendant, PPE." },
       4: { name: "ATG Inspection", text: "Go to the ATG / electrical section. Apply intrinsically safe practices." },
       5: { name: "Working at Heights", text: "Access the canopy area. Apply fall protection and exclusion zones." }
@@ -129,6 +193,8 @@
       document.getElementById("status").textContent = "Region: " + region.charAt(0).toUpperCase() + region.slice(1);
       const colors = { australia: "#0066CC", india: "#E67E22", thailand: "#27AE60", southafrica: "#2C3E50" };
       document.getElementById("canopy").setAttribute("color", colors[region] || "#0066CC");
+      const shopColors = { australia: "#E0E0E0", india: "#F5E6C8", thailand: "#D4E6D4", southafrica: "#D0D0D0" };
+      document.querySelector("#shop a-box").setAttribute("color", shopColors[region] || "#E0E0E0");
     }
 
     function startModule(num) {
